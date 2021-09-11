@@ -18,17 +18,17 @@ namespace Conditionals_exercise4
 			Console.Write("PLease enter a speed of a car: ");
 			var car_speed = Convert.ToInt32(Console.ReadLine());
 
-			if (car_speed < speed_limit)
-				Console.WriteLine("Ok");
-			else
+			if (car_speed <= speed_limit)
 			{
-				float demerit_point = (car_speed - speed_limit) / 5f;
-				if (demerit_point > 12)
-					Console.WriteLine("Your license has been suspended.");
-				else
-					@Console.WriteLine("You've exceeded speed limit with " + demerit_point + " demerit points.");
+				Console.WriteLine("Ok");
+				return;
 			}
-				
+
+			var demerit_point = (car_speed - speed_limit) / 5;
+			if (demerit_point > 12)
+				Console.WriteLine("Your license has been suspended.");
+			else
+				Console.WriteLine($"You've exceeded speed limit with {demerit_point} demerit points.");				
 		}
 	}
 }
